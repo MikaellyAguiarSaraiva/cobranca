@@ -29,14 +29,20 @@ public class TituloController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(Titulo titulo) {		
-		titulos.save(titulo);			
+		titulos.save(titulo);		
 		ModelAndView mv = new ModelAndView("CadastroTitulo");		
+		mv.addObject("mensagem", "Titulo salvo com sucesso!");
 		return mv;
+	}
+	
+	@RequestMapping
+	public String pesquisar() {
+		return "PesquisaTitulos";
 	}
 	
 	@ModelAttribute("todosStatusTitulo")
 	public List<StatusTituto> todosStatusTitulo() {
 		return Arrays.asList(StatusTituto.values());
 	}
-		
+			
 }
