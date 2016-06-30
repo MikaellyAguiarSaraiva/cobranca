@@ -3,6 +3,8 @@ package com.cobranca.data.jpa.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.smartcardio.ATR;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cobranca.data.jpa.model.StatusTituto;
 import com.cobranca.data.jpa.model.Titulo;
@@ -32,16 +35,15 @@ public class TituloController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(@Validated Titulo titulo, Errors erros) {		
-		ModelAndView mv = new ModelAndView("CadastroTitulo");	
-		
+	public String salvar(@Validated Titulo titulo, Errors erros, RedirectAttributes attributes) {		
 		if(erros.hasErrors()) {
-			return mv;
+			return "CadastroTitulo";
 		}
 		
 		titulos.save(titulo);			
-		mv.addObject("mensagem", "Titulo salvo com sucesso!");
-		return mv;
+		attributes.addFlashAttribute("mensagem", "Titulo salvo com sucesso!");
+		
+		return "redirect:/titulos/novo";
 	}
 	
 	@RequestMapping
