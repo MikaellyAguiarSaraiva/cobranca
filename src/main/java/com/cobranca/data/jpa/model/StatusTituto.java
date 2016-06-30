@@ -1,4 +1,4 @@
-package com.cobranca.data.jpa.domain;
+package com.cobranca.data.jpa.model;
 
 public enum StatusTituto {
 

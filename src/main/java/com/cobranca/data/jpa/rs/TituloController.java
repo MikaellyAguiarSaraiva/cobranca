@@ -1,4 +1,4 @@
-package com.cobranca.data.jpa.web;
+package com.cobranca.data.jpa.rs;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cobranca.data.jpa.domain.StatusTituto;
-import com.cobranca.data.jpa.domain.Titulo;
-import com.cobranca.data.jpa.service.TitulosRepository;
+import com.cobranca.data.jpa.model.StatusTituto;
+import com.cobranca.data.jpa.model.Titulo;
+import com.cobranca.data.jpa.repository.TitulosRepository;
 
 @Controller
 @RequestMapping("/titulos")

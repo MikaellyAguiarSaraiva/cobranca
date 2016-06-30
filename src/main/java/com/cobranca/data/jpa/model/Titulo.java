@@ -1,4 +1,4 @@
-package com.cobranca.data.jpa.domain;
+package com.cobranca.data.jpa.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
