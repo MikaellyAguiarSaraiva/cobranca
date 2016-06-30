@@ -1,4 +1,4 @@
-package com.cobranca.data.jpa.rs;
+package com.cobranca.data.jpa.controller;
 
 import java.util.Arrays;
 import java.util.List;
