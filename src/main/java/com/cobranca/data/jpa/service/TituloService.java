@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.cobranca.data.jpa.model.StatusTituto;
 import com.cobranca.data.jpa.model.Titulo;
 import com.cobranca.data.jpa.repository.TitulosRepository;
 
@@ -28,6 +29,14 @@ public class TituloService {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Erro na exclusão do titulo");
 		}
+	}
+
+	public String receber(Long codigo) {
+		Titulo titulo = titulos.findOne(codigo);
+		titulo.setStatus(StatusTituto.RECEBIDO);
+		titulos.save(titulo);
+		
+		return StatusTituto.RECEBIDO.getDescricao();
 	}
 
 }

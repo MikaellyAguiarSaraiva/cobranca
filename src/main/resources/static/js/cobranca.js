@@ -31,10 +31,22 @@ $(function () {
 		  event.preventDefault();
 		  
 		  var botaoReceber = $(event.currentTarget);
-		  
+		  var codigoTitulo = botaoReceber.data('codigo');
 		  var urlReceber = $(botaoReceber).attr('href');
 		  
-		  console.log('urlReceber', urlReceber);
+		  var response = $.ajax({
+			  url: urlReceber,
+			  type: 'PUT',
+		  });
 		  
+		  response.done(function(e){
+			  $('[data-role=' + codigoTitulo + ']').html('<span class="label label-success">' + e + '</span>');
+			  
+			  botaoReceber.hide();
+		  });
+		  
+		  response.fail(function(e){
+			  console.log('error!');
+		  });
 	  });
 })
