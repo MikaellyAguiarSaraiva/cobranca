@@ -83,5 +83,10 @@ public class TituloController {
 	public List<StatusTituto> todosStatusTitulo() {
 		return Arrays.asList(StatusTituto.values());
 	}
+	
+	@RequestMapping(value="receber")
+	public void Receber(Long codigo) {
+		
+	}
 			
 }
