@@ -1,0 +1,7 @@
+com\cobranca\data\jpa\model\StatusTituto.class
+com\cobranca\data\jpa\controller\TituloController.class
+com\cobranca\data\jpa\service\TituloService.class
+com\cobranca\data\jpa\repository\TituloFilter.class
+com\cobranca\data\jpa\SampleDataJpaApplication.class
+com\cobranca\data\jpa\model\Titulo.class
+com\cobranca\data\jpa\repository\TitulosRepository.class
